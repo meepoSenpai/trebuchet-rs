@@ -1,0 +1,6 @@
+[package]
+name = "trebuchet-rs"
+version = "0.1.0"
+authors = ["Ian List <ian_alexander.list@mailbox.tu-dresden.de>"]
+
+[dependencies]
