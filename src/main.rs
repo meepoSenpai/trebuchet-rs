@@ -7,13 +7,15 @@ mod command_chooser;
 
 use command_chooser::{Command, match_command};
 
-use std::io;
+use std::io::{self, Write};
 
 fn main() {
 
+	print!("Enter the command you desire to run: ");
+	io::stdout().flush().unwrap();
     let mut input: String = String::new();
     match io::stdin().read_line(&mut input){
-    	Ok(_) => println!("Read successful"),
+    	Ok(_) => println!("Command read successful\n"),
     	_ => println!("Something went wrong")
     };
     input.pop();
@@ -26,11 +28,12 @@ fn main() {
     			Some(t) => t,
     			None => panic!()
     		};
+    		println!("{}", result.heading);
     		println!("{}", result.abstract_text);
     	},
     	Command::WebSearch(_) => println!("DDG something!"),
     	Command::FileSearch(_) => println!("Search file!"),
-    	Command::FaultyCommand => println!("This was wrong")
+    	Command::FaultyCommand => println!("Malformed command. Valid command-prefixes: ['run:', 'quack:', 'web:', 'file:']")
     };
 
 }
