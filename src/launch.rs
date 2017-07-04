@@ -2,8 +2,11 @@ use search;
 use std::error::Error;
 use std::process::Command;
 
-fn launch_app(path: &str) -> Result<(), Box<Error>> {
-    Command::new("open").arg(path).spawn()?;
+pub fn launch_app(path: &str) -> Result<(), Box<Error>> {
+    match Command::new(path).output(){
+    	Ok(_) => println!("Command worked without problem"),
+    	Err(_) => println!("Command not found")
+    };
     Ok(())
 }
 

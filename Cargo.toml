@@ -4,3 +4,5 @@ version = "0.1.0"
 authors = ["Ian List <ian_alexander.list@mailbox.tu-dresden.de>"]
 
 [dependencies]
+regex = "0.2"
+ddg = "0.3.0"
