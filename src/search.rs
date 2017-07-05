@@ -16,9 +16,9 @@ pub fn search_for_file(search: &str) -> Result<String, Box<Error>> {
 }
 
 pub fn instant_reply(search_query: &str) -> Option<Response> {
-	let query: Query = Query::new(search_query, APP_NAME);
-	match query.execute() {
-		Ok(t) => return Some(t),
-		Err(_) => return None
-	};
+    let query: Query = Query::new(search_query, APP_NAME);
+    match query.execute() {
+        Ok(t) => return Some(t),
+        Err(_) => return None
+    };
 }
